@@ -57,7 +57,7 @@ void DIO_voidSetPinDirection(u8 PortID, u8 PinID, u8 Direction)
 
 /**Output Mode*/
 
-void  DIO_viodSetPinValue(u8 PortID, u8 PinID, u8 Value)
+void  DIO_voidSetPinValue(u8 PortID, u8 PinID, u8 Value)
 {
 	if(PortID<4 && PinID<8)
 	{
@@ -98,10 +98,10 @@ u8 DIO_u8ReadPinValue(u8 PortID, u8 PinID)
 
 		switch(PortID)
 			{
-				case DPORTA: val = Get_Bit(PORTA, PinID); break;
-				case DPORTB: val = Get_Bit(PORTB, PinID); break;
-				case DPORTC: val = Get_Bit(PORTC, PinID); break;
-				case DPORTD: val = Get_Bit(PORTD, PinID); break;
+				case DPORTA: val = Get_Bit(PINA, PinID); break;
+				case DPORTB: val = Get_Bit(PINB, PinID); break;
+				case DPORTC: val = Get_Bit(PINC, PinID); break;
+				case DPORTD: val = Get_Bit(PIND, PinID); break;
 			}
 	}
 	else{}
@@ -120,20 +120,20 @@ void DIO_voidSetPortDirection(u8 PortID, u8 Direction)
 		{
 			switch(PortID)
 			{
-			case DPORTA: for(u8 i=0;i<8;i++) Set_Bit(DDRA, i) ; break;
-			case DPORTB: for(u8 i=0;i<8;i++) Set_Bit(DDRB, i) ; break;
-			case DPORTC: for(u8 i=0;i<8;i++) Set_Bit(DDRC, i) ; break;
-			case DPORTD: for(u8 i=0;i<8;i++) Set_Bit(DDRD, i) ; break;
+			case DPORTA: DDRA=0b11111111 ; break;
+			case DPORTB: DDRB=0b11111111 ; break;
+			case DPORTC: DDRC=0b11111111 ; break;
+			case DPORTD: DDRD=0b11111111 ; break;
 			}
 		}
 		else if(Direction == INPUT)
 		{
 			switch(PortID)
 			{
-			case DPORTA: for(u8 i=0;i<8;i++) Clear_Bit(DDRA, i) ; break;
-			case DPORTB: for(u8 i=0;i<8;i++) Clear_Bit(DDRB, i) ; break;
-			case DPORTC: for(u8 i=0;i<8;i++) Clear_Bit(DDRC, i) ; break;
-			case DPORTD: for(u8 i=0;i<8;i++) Clear_Bit(DDRD, i) ; break;
+			case DPORTA: DDRA=0b00000000 ; break;
+			case DPORTB: DDRB=0b00000000 ; break;
+			case DPORTC: DDRC=0b00000000 ; break;
+			case DPORTD: DDRD=0b00000000 ; break;
 			}
 		}
 		else{}
