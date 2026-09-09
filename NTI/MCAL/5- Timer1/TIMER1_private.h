@@ -8,5 +8,6 @@
 #define ICR1    *((volatile u16*)0x46)
 #define TIMSK   *((volatile u8*)0x59)
 #define TIFR    *((volatile u8*)0x58)
+#define OCR1B   *((volatile u16*)0x48)
 
 #endif

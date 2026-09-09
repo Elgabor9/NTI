@@ -6,6 +6,8 @@ void TIMER0_voidDelay1Sec(void);
 
 //CTC
 #define CTC 0
+#define NORMAL 1
 void TIMER0_voidSetCompare(u8 Copy_u8OCRValue);
+
 
 #endif

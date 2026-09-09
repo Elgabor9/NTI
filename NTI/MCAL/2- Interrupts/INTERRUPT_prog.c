@@ -10,6 +10,9 @@
 
 void INTERRUPT_init(void)
 {
+	DIO_voidSetPinDirection(DPORTD,PIN3,INPUT);
+	DIO_voidSetPinValue(DPORTD,PIN3,HIGH);
+
     Clear_Bit(MCUCR, ISC11);
     Set_Bit(MCUCR, ISC10);
 
